@@ -28,3 +28,9 @@ function onLoadHandler() {}
 const eventFire = (riveEvent) => {};
 // Register the event handler
 riveInstance.on(rive.EventType.RiveEvent, eventFire);
+
+function pointSetter(getInput) {
+	inputs = riveInstance.stateMachineInputs(stateMachine);
+	pointer = inputs.find((i) => i.name === "Number");
+	return (pointer.value = getInput);
+}
