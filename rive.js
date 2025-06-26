@@ -29,8 +29,11 @@ const eventFire = (riveEvent) => {
 	const eventProperties = eventData.properties;
 	switch (eventName) {
 		case "points":
-			console.log(Math.round(eventProperties.point));
+			let rounder = Math.round(eventProperties.point);
+			console.log(rounder);
 			pointSetter(eventProperties.point);
+			const text = (document.getElementById("point").textContent = rounder);
+
 			break;
 		default:
 			console.log(eventName);
