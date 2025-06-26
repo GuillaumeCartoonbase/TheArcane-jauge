@@ -17,6 +17,11 @@ window.addEventListener(
 	},
 	false
 );
+// Handle the onLoad event
+function onLoadHandler() {
+	// Prevent a blurry canvas by using the device pixel ratio
+	riveInstance.resizeDrawingSurfaceToCanvas();
+}
 
 function onLoadHandler() {}
 
