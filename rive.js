@@ -23,9 +23,21 @@ function onLoadHandler() {
 	riveInstance.resizeDrawingSurfaceToCanvas();
 }
 
-function onLoadHandler() {}
+const eventFire = (riveEvent) => {
+	const eventData = riveEvent.data;
+	const eventName = eventData.name;
+	const eventProperties = eventData.properties;
+	switch (eventName) {
+		case "points":
+			console.log(eventProperties.point);
+			pointSetter(eventProperties.point);
+			break;
+		default:
+			console.log(eventName);
+			break;
+	}
+};
 
-const eventFire = (riveEvent) => {};
 // Register the event handler
 riveInstance.on(rive.EventType.RiveEvent, eventFire);
 
