@@ -30,10 +30,12 @@ const eventFire = (riveEvent) => {
 	switch (eventName) {
 		case "points":
 			let rounder = Math.round(eventProperties.point);
-			console.log(rounder);
-			pointSetter(eventProperties.point);
-			const text = (document.getElementById("point").textContent = rounder);
 
+			inputs = riveInstance.stateMachineInputs(stateMachine);
+			pointer = inputs.find((i) => i.name === "Number");
+			pointer.value = rounder;
+
+			const text = (document.getElementById("point").textContent = rounder);
 			break;
 		default:
 			console.log(eventName);
@@ -43,9 +45,3 @@ const eventFire = (riveEvent) => {
 
 // Register the event handler
 riveInstance.on(rive.EventType.RiveEvent, eventFire);
-
-function pointSetter(getInput) {
-	inputs = riveInstance.stateMachineInputs(stateMachine);
-	pointer = inputs.find((i) => i.name === "Number");
-	return (pointer.value = getInput);
-}
