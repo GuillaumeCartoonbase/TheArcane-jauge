@@ -37,6 +37,13 @@ const eventFire = (riveEvent) => {
 
 			const text = (document.getElementById("point").textContent = rounder);
 			break;
+		// Change pointer when hovering action
+		case "pointerIn":
+			document.body.style.cursor = "pointer";
+			break;
+		case "pointerOut":
+			document.body.style.cursor = "auto";
+			break;
 		default:
 			console.log(eventName);
 			break;
